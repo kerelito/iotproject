@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monitor Czujników IoT</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Dashboard czujników</h1>
+      <div class="meta">
+        <span>Status: <strong id="status">ONLINE</strong></span>
+        <span>Ostatnia aktualizacja: <strong id="lastUpdate">—</strong></span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="cards" aria-label="Aktualne odczyty">
+        <article class="card">
+          <h2>Temperatura</h2>
+          <p><span id="tempValue">--</span> °C</p>
+        </article>
+        <article class="card">
+          <h2>Wilgotność</h2>
+          <p><span id="humidityValue">--</span> %</p>
+        </article>
+        <article class="card">
+          <h2>Ciśnienie</h2>
+          <p><span id="pressureValue">--</span> hPa</p>
+        </article>
+      </section>
+
+      <section class="chart-panel">
+        <h2>Wizualizacja danych (czas rzeczywisty)</h2>
+        <canvas id="sensorChart" height="110"></canvas>
+      </section>
+
+      <section class="controls">
+        <h2>Progi alertów</h2>
+        <form id="thresholdForm">
+          <label>
+            Temperatura max (°C)
+            <input type="number" id="tempThreshold" value="28" step="0.1" />
+          </label>
+          <label>
+            Wilgotność max (%)
+            <input type="number" id="humidityThreshold" value="75" step="0.1" />
+          </label>
+          <label>
+            Ciśnienie min (hPa)
+            <input type="number" id="pressureThreshold" value="990" step="0.1" />
+          </label>
+          <button type="submit">Zapisz progi</button>
+        </form>
+      </section>
+
+      <section class="alerts">
+        <h2>Alerty</h2>
+        <ul id="alertList">
+          <li class="muted">Brak alertów.</li>
+        </ul>
+      </section>
+
+      <section class="history">
+        <h2>Dane historyczne (ostatnie 20 pomiarów)</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Czas</th>
+                <th>Temperatura (°C)</th>
+                <th>Wilgotność (%)</th>
+                <th>Ciśnienie (hPa)</th>
+              </tr>
+            </thead>
+            <tbody id="historyBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
