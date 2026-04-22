@@ -1,12 +1,12 @@
 :root {
-  --bg: #0f172a;
-  --panel: #1e293b;
-  --panel-2: #334155;
-  --text: #e2e8f0;
-  --muted: #94a3b8;
-  --ok: #22c55e;
-  --warn: #f97316;
-  --danger: #ef4444;
+  --bg: #f3f4f6;
+  --panel: #ffffff;
+  --panel-2: #d1d5db;
+  --text: #111827;
+  --muted: #6b7280;
+  --ok: #15803d;
+  --warn: #c2410c;
+  --danger: #b91c1c;
 }
 
 * {
@@ -15,22 +15,18 @@
 
 body {
   margin: 0;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  background: linear-gradient(180deg, var(--bg), #020617);
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
   color: var(--text);
 }
 
 .topbar {
-  position: sticky;
-  top: 0;
-  background: rgba(2, 6, 23, 0.85);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid #1f2937;
+  background: #e5e7eb;
+  border-bottom: 1px solid #cbd5e1;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   padding: 1rem 1.5rem;
-  z-index: 10;
 }
 
 .topbar h1 {
@@ -38,11 +34,17 @@ body {
   font-size: 1.2rem;
 }
 
+.draft-note {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 .meta {
   display: flex;
   gap: 1rem;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 #status {
@@ -50,12 +52,12 @@ body {
 }
 
 .layout {
-  max-width: 1280px;
-  margin: 1.2rem auto 2rem;
+  max-width: 1100px;
+  margin: 1rem auto 2rem;
   padding: 0 1rem;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .cards {
@@ -70,22 +72,23 @@ body {
 .controls,
 .alerts,
 .history {
-  background: linear-gradient(180deg, var(--panel), #0b1220);
-  border: 1px solid #334155;
-  border-radius: 12px;
-  padding: 1rem;
+  background: var(--panel);
+  border: 1px solid var(--panel-2);
+  border-radius: 4px;
+  padding: 0.9rem;
 }
 
 .card h2 {
   margin: 0 0 0.35rem;
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--muted);
+  font-weight: 600;
 }
 
 .card p {
   margin: 0;
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 1.8rem;
+  font-weight: 600;
 }
 
 .chart-panel {
@@ -107,21 +110,22 @@ body {
 .charts-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.8rem;
+  gap: 0.75rem;
 }
 
 .mini-chart {
-  background: rgba(15, 23, 42, 0.55);
-  border: 1px solid #334155;
-  border-radius: 10px;
+  background: #fafafa;
+  border: 1px solid var(--panel-2);
+  border-radius: 2px;
   padding: 0.75rem;
-  height: 260px;
+  height: 240px;
 }
 
 .mini-chart h3 {
   margin: 0 0 0.5rem;
   color: var(--muted);
   font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .controls form {
@@ -138,9 +142,9 @@ label {
 
 input,
 button {
-  border-radius: 8px;
+  border-radius: 2px;
   border: 1px solid var(--panel-2);
-  background: #0b1220;
+  background: #fff;
   color: var(--text);
   padding: 0.55rem 0.65rem;
 }
@@ -148,11 +152,11 @@ button {
 button {
   cursor: pointer;
   font-weight: 600;
-  background: #0369a1;
+  background: #e5e7eb;
 }
 
 button:hover {
-  filter: brightness(1.1);
+  background: #dbe1e8;
 }
 
 ul {
@@ -192,7 +196,7 @@ table {
 
 th,
 td {
-  border-bottom: 1px solid #1f2937;
+  border-bottom: 1px solid #e5e7eb;
   text-align: left;
   padding: 0.55rem;
   font-size: 0.92rem;
@@ -201,6 +205,7 @@ td {
 th {
   color: var(--muted);
   font-weight: 600;
+  background: #f9fafb;
 }
 
 @media (max-width: 900px) {
